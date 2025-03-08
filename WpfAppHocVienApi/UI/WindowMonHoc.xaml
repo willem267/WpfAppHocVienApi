@@ -15,6 +15,7 @@
     <Window.CommandBindings>
         <CommandBinding x:Name="xoa" Command="local:WindowMonHoc.lenhXoa" CanExecute="xoa_CanExecute" Executed="xoa_Executed"/>
         <CommandBinding x:Name="them" Command="local:WindowMonHoc.lenhThem" CanExecute="them_CanExecute" Executed="them_Executed"/>
+        <CommandBinding x:Name="sua" Command="local:WindowMonHoc.lenhSua" CanExecute="sua_CanExecute" Executed="sua_Executed"/>
     </Window.CommandBindings>
     <StackPanel>
         <Label Content="Quản lý môn học" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
@@ -39,10 +40,10 @@
             <TextBox Grid.Column="2" Grid.Row="2" Text="{Binding Sotiet}"/>
             <Button Grid.Column="3" Grid.Row="0" Content="Thêm" Command="local:WindowMonHoc.lenhThem"/>
             <Button Grid.Column="3" Grid.Row="1" Content="Xóa" Command="local:WindowMonHoc.lenhXoa" />
-            <Button Grid.Column="3" Grid.Row="2" Content="Sửa"/>
+            <Button Grid.Column="3" Grid.Row="2" Content="Sửa" Command="local:WindowMonHoc.lenhSua"/>
 
         </Grid>
-        <DataGrid x:Name="dgMonhoc" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgMonhoc" AutoGenerateColumns="False" SelectionChanged="dgMonhoc_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã số" Binding="{Binding Msmh}"/>
                 <DataGridTextColumn Header="Tên môn học" Binding="{Binding Tenmh}"/>

@@ -28,5 +28,11 @@ namespace WpfAppHocVienApi
             f.Show();
                
         }
+
+        private void dkMH_Click(object sender, RoutedEventArgs e)
+        {
+            WindowDKMH f = new WindowDKMH();
+            f.Show();
+        }
     }
 }

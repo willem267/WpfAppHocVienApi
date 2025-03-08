@@ -23,6 +23,7 @@ namespace WpfAppHocVienApi.UI
     {
         public static RoutedUICommand lenhXoa = new RoutedUICommand();
         public static RoutedUICommand lenhThem = new RoutedUICommand();
+        public static RoutedUICommand lenhSua = new RoutedUICommand();
 
         public WindowMonHoc()
         {
@@ -75,6 +76,38 @@ namespace WpfAppHocVienApi.UI
                 hienThi();
             else
                 MessageBox.Show("Thêm éo được");
+        }
+
+        private void sua_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void sua_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            CMonhoc x = gridMH.DataContext as CMonhoc;
+            if (CXulyMonHoc.suaMonHoc(x) == true)
+                hienThi();
+            else
+                MessageBox.Show("Sửa éo được");
+        }
+
+        private void dgMonhoc_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           
+            CMonhoc mh = dgMonhoc.SelectedItem as CMonhoc;
+            if(mh == null)
+            {
+                return;
+            }
+            CMonhoc m = new CMonhoc
+            {
+                Msmh = mh.Msmh,
+                Tenmh = mh.Tenmh,
+                Sotiet = mh.Sotiet,
+            };
+            gridMH.DataContext = m;
+
         }
     }
 }

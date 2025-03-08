@@ -58,5 +58,20 @@ namespace WpfAppHocVienApi.Models
                 return false;
             }
         }
+        public static bool suaMonHoc(CMonhoc mh)
+        {
+            try
+            {
+                HttpClient hc = new HttpClient();
+
+                var res = hc.PutAsJsonAsync<CMonhoc>(strUrl, mh);
+                res.Wait();
+                return res.Result.IsSuccessStatusCode;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

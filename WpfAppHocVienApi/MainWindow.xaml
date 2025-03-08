@@ -9,6 +9,7 @@
     <StackPanel>
         <Menu>
             <MenuItem Header="Menu mon hoc" x:Name="MenuMonHoc" Click="MenuMonHoc_Click"/>
+            <MenuItem Header="Đăng ký môn học" x:Name="dkMH" Click="dkMH_Click"/>
         </Menu>
     </StackPanel>
 </Window>
